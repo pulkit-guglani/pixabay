@@ -14,11 +14,11 @@ const Search = () => {
   const apiUrl = "https://pixabay.com/api/";
   const [imagesData, setImagesData] = useState([]);
   const [searchText, setSearchText] = useState("");
-  const [searchLimit, setSearchLimit] = useState(5);
+  const [searchLimit, setSearchLimit] = useState(10);
 
   useEffect(() => {
     getImages();
-  }, [searchText]);
+  }, [searchText, searchLimit]);
 
   const getImages = async () => {
     const imagesResult = await axios.get(
@@ -56,8 +56,10 @@ const Search = () => {
         >
           <MenuItem value={5}>5</MenuItem>
           <MenuItem value={10}>10</MenuItem>
-          <MenuItem value={15}>15</MenuItem>
           <MenuItem value={20}>20</MenuItem>
+          <MenuItem value={30}>30</MenuItem>
+          <MenuItem value={50}>50</MenuItem>
+          <MenuItem value={100}>100</MenuItem>
         </Select>
       </FormControl>
       <ImageResults itemData={imagesData} />
