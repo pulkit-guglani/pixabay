@@ -7,8 +7,6 @@ import {
   Typography,
   Box,
 } from "@mui/material";
-import MenuIcon from "@mui/icons-material/Menu";
-import { display } from "@mui/system";
 const Navbar = () => {
   return (
     <Box sx={{ flexGrow: 1 }}>
