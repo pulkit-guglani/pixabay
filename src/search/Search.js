@@ -12,7 +12,6 @@ import ImageResults from "../image-results/ImageResults";
 
 const Search = () => {
   const apiUrl = "https://pixabay.com/api/";
-  const apiKey = "33766889-5d1b5b71f1eafa93fd0cbc515";
   const [imagesData, setImagesData] = useState([]);
   const [searchText, setSearchText] = useState("");
   const [searchLimit, setSearchLimit] = useState(5);
@@ -23,7 +22,7 @@ const Search = () => {
 
   const getImages = async () => {
     const imagesResult = await axios.get(
-      `${apiUrl}/?key=${apiKey}&q=${searchText}&image_type=photo&per_page=${searchLimit}`
+      `${apiUrl}/?key=${process.env.REACT_APP_PIXABAY_API}&q=${searchText}&image_type=photo&per_page=${searchLimit}`
     );
     console.log(imagesResult.data);
     setImagesData(imagesResult.data.hits);
